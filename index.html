@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy – StickerMeleon</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; color: #1b1b1f; background: #fff; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.2em; }
+  h2 { font-size: 1.25rem; margin-top: 2em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.95rem; }
+  th, td { border: 1px solid #d0d0d6; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f2f2f7; }
+  .muted { color: #55555d; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #121214; color: #ececf1; }
+    th { background: #1d1d22; }
+    th, td { border-color: #3a3a42; }
+    .muted { color: #a5a5ae; }
+    a { color: #8ab4ff; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="muted">App: <strong>StickerMeleon</strong> (Android) &middot; Developer: <strong>Plutov100 Studio</strong><br>
+Last updated: October 2026</p>
+
+<p>This Privacy Policy explains what information the StickerMeleon app (&ldquo;the app&rdquo;) handles, why, where it goes and what choices you have. The app is provided by Plutov100 Studio (&ldquo;we&rdquo;, &ldquo;us&rdquo;).</p>
+
+<h2>1. Summary</h2>
+<ul>
+  <li>Most of your data stays <strong>on your device</strong>: your photos, the stickers you make and your settings.</li>
+  <li>Data leaves your device only when you <strong>publish a sticker pack to Telegram</strong> and when you use <strong>Pro subscription features</strong> (purchases are handled by Google Play and RevenueCat).</li>
+  <li>The app contains <strong>no advertising</strong> and no analytics or tracking tools of its own. We do not sell your data.</li>
+</ul>
+
+<h2>2. Information that stays on your device</h2>
+<ul>
+  <li><strong>Photos.</strong> You choose a photo with the Android system photo picker (no gallery permission is needed) or take one with the camera. The camera permission is requested only when you choose to take a photo. Your original photo is not uploaded anywhere.</li>
+  <li><strong>Background removal.</strong> The app removes backgrounds on your device using Google ML Kit. The image is not sent to our servers. The ML Kit model is downloaded by Google Play services, and Google may process technical data in connection with that service under its own terms.</li>
+  <li><strong>Stickers and packs.</strong> The sticker images, pack names, emoji and order are stored in the app&rsquo;s private storage on your device. You can delete stickers and packs inside the app.</li>
+  <li><strong>Temporary files.</strong> Working copies of images are kept in the app&rsquo;s cache while you edit. The app removes some of them automatically; all of them are removed when you clear the app&rsquo;s cache or uninstall the app.</li>
+  <li><strong>Settings.</strong> Theme, language and notification preferences are stored on your device.</li>
+  <li><strong>Notifications.</strong> The app uses local reminders scheduled on your device. It does not register for push notification services and does not collect a push token. You can turn reminders off in the app&rsquo;s Settings or in Android settings.</li>
+</ul>
+
+<h2>3. Information sent when you publish to Telegram</h2>
+<p>To publish a sticker pack, you first connect your Telegram account to our Telegram bot. Publishing is done by our server (Google Cloud Functions / Firebase, region europe-west1), because the bot&rsquo;s secret key must not be stored in the app.</p>
+<table>
+  <tr><th>What</th><th>Why</th><th>Where it goes</th></tr>
+  <tr><td>When you press <em>Start</em> in the bot: your Telegram numeric user ID, first name and username (no other Telegram profile data is stored)</td><td>To link the app to your Telegram account so the pack can be created for you</td><td>Our database (Google Cloud Firestore). The app also keeps a link token and your Telegram name on your device in encrypted storage.</td></tr>
+  <tr><td>The sticker images you publish, the pack title and the emoji</td><td>To create the sticker pack in Telegram</td><td>Sent over HTTPS to our server, which forwards them to Telegram. We do <strong>not</strong> store the images on our server.</td></tr>
+  <tr><td>A record of each published pack: pack name, title, number of stickers, creation time, your Telegram ID and link token</td><td>To let you update or delete your pack</td><td>Our database (Google Cloud Firestore)</td></tr>
+</table>
+<p>The sticker pack itself is stored by Telegram and is publicly accessible through its link. Telegram processes your data under its own privacy policy: <a href="https://telegram.org/privacy">telegram.org/privacy</a>.</p>
+
+<h2>4. Subscriptions (Sticker Pro)</h2>
+<p>Pro features are sold as a subscription through Google Play. Payment is processed by Google; we never see your card or payment details. To check whether a subscription is active, the app uses the service <strong>RevenueCat</strong>. On every launch the app creates an anonymous RevenueCat identifier and asks for your subscription status. RevenueCat receives that anonymous identifier together with purchase information from Google Play (such as the product, purchase token, dates, price and currency) and basic technical data (such as app and Android version and locale), and may infer your country from your IP address. See <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a>. You can cancel a subscription at any time in Google Play.</p>
+
+<h2>5. Server logs</h2>
+<p>Our server records technical error messages. Google Cloud, which hosts the server, may also keep standard request logs (for example IP address, request path and time) for a limited period under its default settings. We use these logs only to keep the service running and to investigate problems.</p>
+
+<h2>6. Service providers we rely on</h2>
+<ul>
+  <li>Google (Android, Google Play, Google Play services and billing, ML Kit, Google Cloud / Firebase) &ndash; <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+  <li>Telegram &ndash; <a href="https://telegram.org/privacy">telegram.org/privacy</a></li>
+  <li>RevenueCat &ndash; <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
+</ul>
+<p>We do not sell personal data and do not use it for advertising.</p>
+
+<h2>7. Retention and deletion</h2>
+<ul>
+  <li><strong>On your device:</strong> delete stickers and packs inside the app, or uninstall the app to remove everything stored on the device.</li>
+  <li><strong>On our server:</strong> the records described in section 3 are kept while they are needed to provide the publishing feature. You can ask us to delete them at any time by emailing us at the address below; we will delete them within 30 days. Please include your Telegram username so we can find the records.</li>
+  <li><strong>Telegram:</strong> you can delete a published pack from the app (&ldquo;Delete everywhere&rdquo;).</li>
+  <li><strong>RevenueCat / Google:</strong> purchase records are kept by those providers under their own policies. Contact us if you want us to request deletion of your RevenueCat record.</li>
+</ul>
+
+<h2>8. Security</h2>
+<p>Data sent from the app to our server is transmitted over HTTPS. The Telegram link token is stored on your device in Android&rsquo;s encrypted storage. No method of storage or transmission is completely secure.</p>
+
+<h2>9. Your rights</h2>
+<p>Depending on where you live (for example in the European Economic Area), you may have the right to access, correct or delete your personal data, to restrict or object to its processing, and to complain to your local data protection authority. To exercise these rights, contact us at the address below.</p>
+
+<h2>10. Children</h2>
+<p>The app is not intended for children under 13 years of age, and we do not knowingly collect personal data from them. If you believe a child has provided data to us, contact us and we will delete it.</p>
+
+<h2>11. Changes to this policy</h2>
+<p>We may update this policy. The date at the top shows when it was last changed. Material changes will also be described in the app or its store listing.</p>
+
+<h2>12. Contact</h2>
+<p>Plutov100 Studio<br>
+Email: <a href="mailto:aleksplut88@gmail.com">aleksplut88@gmail.com</a></p>
+
+</body>
+</html>
