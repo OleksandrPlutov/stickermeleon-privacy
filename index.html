@@ -32,18 +32,19 @@ Last updated: October 2026</p>
 <h2>1. Summary</h2>
 <ul>
   <li>Most of your data stays <strong>on your device</strong>: your photos, the stickers you make and your settings.</li>
-  <li>Data leaves your device only when you <strong>publish a sticker pack to Telegram</strong> and when you use <strong>Pro subscription features</strong> (purchases are handled by Google Play and RevenueCat).</li>
+  <li>Data leaves your device only when you <strong>publish a sticker pack to Telegram</strong>, when you use <strong>Pro subscription features</strong> (purchases are handled by Google Play and RevenueCat), when you <strong>write to support</strong> in the app, and when the app checks that it is a genuine copy (see section 6).</li>
   <li>The app contains <strong>no advertising</strong> and no analytics or tracking tools of its own. We do not sell your data.</li>
 </ul>
 
 <h2>2. Information that stays on your device</h2>
 <ul>
   <li><strong>Photos.</strong> You choose a photo with the Android system photo picker (no gallery permission is needed) or take one with the camera. The camera permission is requested only when you choose to take a photo. Your original photo is not uploaded anywhere.</li>
-  <li><strong>Background removal.</strong> The app removes backgrounds on your device using Google ML Kit. The image is not sent to our servers. The ML Kit model is downloaded by Google Play services, and Google may process technical data in connection with that service under its own terms.</li>
+  <li><strong>Background removal.</strong> The app removes backgrounds on your device using Google ML Kit. The image is not sent to our servers. The ML Kit model is downloaded by Google Play services, and Google may process technical data (for example usage and diagnostic data about the model) in connection with that service under its own terms.</li>
+  <li><strong>Built-in stickers.</strong> The sticker library in the editor is bundled inside the app and is searched on your device. Searching it does not send anything to us or to any third party. See section 12 for attributions.</li>
   <li><strong>Stickers and packs.</strong> The sticker images, pack names, emoji and order are stored in the app&rsquo;s private storage on your device. You can delete stickers and packs inside the app.</li>
   <li><strong>Temporary files.</strong> Working copies of images are kept in the app&rsquo;s cache while you edit. The app removes some of them automatically; all of them are removed when you clear the app&rsquo;s cache or uninstall the app.</li>
   <li><strong>Settings.</strong> Theme, language and notification preferences are stored on your device.</li>
-  <li><strong>Notifications.</strong> The app uses local reminders scheduled on your device. It does not register for push notification services and does not collect a push token. You can turn reminders off in the app&rsquo;s Settings or in Android settings.</li>
+  <li><strong>Notifications.</strong> The app uses local notifications created on your device (reminders and, if you use the support chat, a notice that support has replied). It does not register for push notification services and does not collect a push token. You can turn notifications off in the app&rsquo;s Settings or in Android settings.</li>
 </ul>
 
 <h2>3. Information sent when you publish to Telegram</h2>
@@ -54,45 +55,77 @@ Last updated: October 2026</p>
   <tr><td>The sticker images you publish, the pack title and the emoji</td><td>To create the sticker pack in Telegram</td><td>Sent over HTTPS to our server, which forwards them to Telegram. We do <strong>not</strong> store the images on our server.</td></tr>
   <tr><td>A record of each published pack: pack name, title, number of stickers, creation time, your Telegram ID and link token</td><td>To let you update or delete your pack</td><td>Our database (Google Cloud Firestore)</td></tr>
 </table>
+<p>When you choose <em>Disconnect Telegram</em> in the app, the records listed above are deleted from our database. Packs that were already published stay in Telegram until you delete them (<em>Delete everywhere</em>).</p>
 <p>The sticker pack itself is stored by Telegram and is publicly accessible through its link. Telegram processes your data under its own privacy policy: <a href="https://telegram.org/privacy">telegram.org/privacy</a>.</p>
 
 <h2>4. Subscriptions (Sticker Pro)</h2>
 <p>Pro features are sold as a subscription through Google Play. Payment is processed by Google; we never see your card or payment details. To check whether a subscription is active, the app uses the service <strong>RevenueCat</strong>. On every launch the app creates an anonymous RevenueCat identifier and asks for your subscription status. RevenueCat receives that anonymous identifier together with purchase information from Google Play (such as the product, purchase token, dates, price and currency) and basic technical data (such as app and Android version and locale), and may infer your country from your IP address. See <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a>. You can cancel a subscription at any time in Google Play.</p>
 
-<h2>5. Server logs</h2>
-<p>Our server records technical error messages. Google Cloud, which hosts the server, may also keep standard request logs (for example IP address, request path and time) for a limited period under its default settings. We use these logs only to keep the service running and to investigate problems.</p>
-
-<h2>6. Service providers we rely on</h2>
+<h2>5. Support chat</h2>
+<p>In Settings you can write to support. This feature is optional. No account or name is needed.</p>
+<table>
+  <tr><th>What</th><th>Why</th><th>Where it goes</th></tr>
+  <tr><td>The text of the messages you write and their time</td><td>To read your message and answer you</td><td>Our database (Google Cloud Firestore, europe-west1). Every message is also forwarded by our Telegram bot to the developer&rsquo;s private Telegram chat, where the developer reads and answers it.</td></tr>
+  <tr><td>Your interface language, app version and platform (Android)</td><td>To help us understand and fix your problem</td><td>Same as above, shown to us together with the message</td></tr>
+  <tr><td>A random conversation identifier, created on first use</td><td>To show you only your own conversation. It is not linked to your name or any account.</td><td>Stored on your device in encrypted storage and in our database</td></tr>
+</table>
 <ul>
-  <li>Google (Android, Google Play, Google Play services and billing, ML Kit, Google Cloud / Firebase) &ndash; <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+  <li><strong>Background check.</strong> While a conversation exists, the app asks our server about every 15 minutes whether there is a reply. Only the random conversation identifier is sent. If there is a reply, the app shows a local notification. When you delete the conversation, the checks stop.</li>
+  <li><strong>Limits.</strong> Messages are limited in length and frequency to prevent abuse. For this the server briefly uses a one-way hash of your IP address kept in memory only; our own database does not store your IP address (but see section 8 about hosting logs). Rate-limit counters, which contain only a hash, are kept for up to two days.</li>
+  <li><strong>Retention.</strong> Conversations are deleted automatically 12 months after the last message. You can delete your conversation at any time with the delete button in the chat; this removes it from our database immediately.</li>
+  <li><strong>Telegram copies.</strong> The copies of your messages in the developer&rsquo;s Telegram chat are not removed by the in-app delete button. They stay there until the developer deletes them; you can ask us to delete them by email.</li>
+  <li>Please do not send passwords, payment details or other sensitive information in the chat.</li>
+</ul>
+
+<h2>6. App integrity check</h2>
+<p>To protect our server from abuse, the app proves to the server that it is a genuine copy installed from Google Play. For this the app uses Firebase App Check with the Google Play Integrity API. Google receives information about the app (such as package name, version and signing certificate) and a device integrity signal from Google Play services, and the Firebase SDK adds basic SDK usage information (dates of use, no personal identifiers) to these requests. Our server receives only a short-lived token confirming the result and does not store it. See <a href="https://policies.google.com/privacy">policies.google.com/privacy</a> and <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
+
+<h2>7. Access code for app reviewers</h2>
+<p>The app contains a hidden screen where a reviewer (for example from Google Play) can enter an access code to unlock Pro features for 30 days. If you never open this screen, nothing is sent. If the code is entered, the app sends the code and your anonymous RevenueCat identifier to our server, which checks the code and asks RevenueCat to grant a 30-day promotional entitlement to that identifier. A record of the grant (the identifier and expiry date) is kept on our server until it expires.</p>
+
+<h2>8. Server logs</h2>
+<p>Our server records technical error messages. Google Cloud, which hosts the server, automatically keeps standard request logs that include the IP address of the request, the request path and the time. By default they are kept for about 30 days. We use these logs only to keep the service running and to investigate problems.</p>
+
+<h2>9. Service providers we rely on</h2>
+<ul>
+  <li>Google (Android, Google Play, Google Play services, Play Integrity and billing, ML Kit, Google Cloud / Firebase) &ndash; <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
   <li>Telegram &ndash; <a href="https://telegram.org/privacy">telegram.org/privacy</a></li>
   <li>RevenueCat &ndash; <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></li>
 </ul>
 <p>We do not sell personal data and do not use it for advertising.</p>
 
-<h2>7. Retention and deletion</h2>
+<h2>10. Retention and deletion</h2>
 <ul>
   <li><strong>On your device:</strong> delete stickers and packs inside the app, or uninstall the app to remove everything stored on the device.</li>
-  <li><strong>On our server:</strong> the records described in section 3 are kept while they are needed to provide the publishing feature. You can ask us to delete them at any time by emailing us at the address below; we will delete them within 30 days. Please include your Telegram username so we can find the records.</li>
+  <li><strong>Telegram link and published-pack records:</strong> deleted from our server when you choose <em>Disconnect Telegram</em> in the app. You can also ask us to delete them by email (we will do it within 30 days; please include your Telegram username).</li>
+  <li><strong>Support conversations:</strong> deleted with the delete button in the chat, or automatically after 12 months (see section 5). The same 12-month limit applies to Telegram-link records if you choose to disconnect only on the device or the server could not be reached. Copies in the developer&rsquo;s Telegram chat can be deleted on request.</li>
   <li><strong>Telegram:</strong> you can delete a published pack from the app (&ldquo;Delete everywhere&rdquo;).</li>
   <li><strong>RevenueCat / Google:</strong> purchase records are kept by those providers under their own policies. Contact us if you want us to request deletion of your RevenueCat record.</li>
 </ul>
 
-<h2>8. Security</h2>
-<p>Data sent from the app to our server is transmitted over HTTPS. The Telegram link token is stored on your device in Android&rsquo;s encrypted storage. No method of storage or transmission is completely secure.</p>
+<h2>11. Security</h2>
+<p>Data sent from the app to our server is transmitted over HTTPS. The Telegram link token and the support conversation identifier are stored on your device in Android&rsquo;s encrypted storage. No method of storage or transmission is completely secure.</p>
 
-<h2>9. Your rights</h2>
+<h2>12. Open-source content and attributions</h2>
+<ul>
+  <li>Built-in stickers: Microsoft Fluent Emoji (3D), MIT License.</li>
+  <li>Emoji search names: Unicode CLDR data, Unicode License V3.</li>
+  <li>Fonts: SIL Open Font License.</li>
+</ul>
+<p>The full list is available in the app under Settings &rarr; About &rarr; Licenses.</p>
+
+<h2>13. Your rights</h2>
 <p>Depending on where you live (for example in the European Economic Area), you may have the right to access, correct or delete your personal data, to restrict or object to its processing, and to complain to your local data protection authority. To exercise these rights, contact us at the address below.</p>
 
-<h2>10. Children</h2>
+<h2>14. Children</h2>
 <p>The app is not intended for children under 13 years of age, and we do not knowingly collect personal data from them. If you believe a child has provided data to us, contact us and we will delete it.</p>
 
-<h2>11. Changes to this policy</h2>
+<h2>15. Changes to this policy</h2>
 <p>We may update this policy. The date at the top shows when it was last changed. Material changes will also be described in the app or its store listing.</p>
 
-<h2>12. Contact</h2>
+<h2>16. Contact</h2>
 <p>Plutov100 Studio<br>
-Email: <a href="mailto:aleksplut88@gmail.com">aleksplut88@gmail.com</a></p>
+Email: <a href="mailto:plutov100studio@gmail.com">plutov100studio@gmail.com</a></p>
 
 </body>
 </html>

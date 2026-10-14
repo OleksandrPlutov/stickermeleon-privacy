@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your data – StickerMeleon</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.6; max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; color: #1b1b1f; background: #fff; }
+  h1 { font-size: 1.8rem; margin-bottom: 0.2em; }
+  h2 { font-size: 1.25rem; margin-top: 2em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.95rem; }
+  th, td { border: 1px solid #d0d0d6; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f2f2f7; }
+  .muted { color: #55555d; }
+  .box { border: 1px solid #d0d0d6; border-radius: 8px; padding: 12px 16px; background: #f9f9fb; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #121214; color: #ececf1; }
+    th { background: #1d1d22; }
+    th, td { border-color: #3a3a42; }
+    .box { background: #1a1a1f; border-color: #3a3a42; }
+    .muted { color: #a5a5ae; }
+    a { color: #8ab4ff; }
+  }
+</style>
+</head>
+<body>
+
+<h1>How to request deletion of your data</h1>
+<p class="muted">App: <strong>StickerMeleon</strong> (Android) &middot; Developer: <strong>Plutov100 Studio</strong></p>
+
+<p>StickerMeleon has no user accounts. Most of your data (photos, stickers, packs, settings) stays on your device and is removed when you delete it in the app or uninstall the app. Only a small amount of data is stored on our server when you connect Telegram and publish a sticker pack. This page explains how to ask us to delete it.</p>
+
+<h2>Delete it yourself in the app</h2>
+<div class="box">
+<ul>
+  <li><strong>Telegram link and pack records:</strong> in the app, choose <em>Disconnect Telegram</em>. This deletes your records from our server immediately.</li>
+  <li><strong>Support chat:</strong> open the support chat and use the delete button. This deletes your conversation from our server immediately.</li>
+</ul>
+</div>
+<p>If you cannot do this in the app, or you also want the copies of your support messages in the developer&rsquo;s Telegram chat deleted, ask us by email.</p>
+
+<h2>Step by step (by email)</h2>
+<div class="box">
+<ol>
+  <li><strong>Optional, before you disconnect Telegram:</strong> in the app, open your sticker pack and choose <em>Delete everywhere</em> to remove published packs from Telegram. (After you disconnect Telegram in the app, packs that were already published stay in Telegram.)</li>
+  <li><strong>Send an email</strong> to <a href="mailto:plutov100studio@gmail.com?subject=StickerMeleon%20data%20deletion%20request">plutov100studio@gmail.com</a> with the subject <strong>&ldquo;StickerMeleon data deletion request&rdquo;</strong>.</li>
+  <li>In the email, write your <strong>Telegram username</strong> (the one connected to the app) so we can find your records. If you have no username, write the first name shown in the app&rsquo;s Telegram connection.</li>
+  <li>We may ask you to confirm that the Telegram account is yours.</li>
+  <li>We delete the data listed below <strong>within 30 days</strong> and confirm by email.</li>
+</ol>
+</div>
+
+<h2>What we delete</h2>
+<table>
+  <tr><th>Data</th><th>Where it is stored</th><th>Action</th></tr>
+  <tr><td>Telegram numeric user ID, first name, username, link token and link time</td><td>Our database (Google Cloud Firestore)</td><td>Deleted</td></tr>
+  <tr><td>Records of sticker packs you published (pack name, title, number of stickers, creation time)</td><td>Our database (Google Cloud Firestore)</td><td>Deleted</td></tr>
+  <tr><td>Support conversations (your messages, time, language, app version) and their copies in the developer&rsquo;s Telegram chat</td><td>Our database (Google Cloud Firestore) and Telegram</td><td>Deleted (also automatically 12 months after the last message)</td></tr>
+</table>
+<p>We do not store your photos or sticker images on our server, so there is nothing to delete there.</p>
+
+<h2>What we keep or cannot delete ourselves</h2>
+<table>
+  <tr><th>Data</th><th>Why</th></tr>
+  <tr><td>Sticker packs already published in Telegram</td><td>They are stored by Telegram. You can remove them with <em>Delete everywhere</em> in the app (step 1). Contact us if you cannot, and we will try to help.</td></tr>
+  <tr><td>Purchase records (Google Play and RevenueCat)</td><td>They are held by Google and by RevenueCat under their own policies, and may be kept for tax, accounting or fraud-prevention reasons. If you want us to request deletion from RevenueCat, include your Google Play order number from your purchase receipt in your email. We will make the request where the record can be identified.</td></tr>
+  <tr><td>Technical server logs</td><td>Kept by Google Cloud for about 30 days under its default settings (they include the IP address of requests) and not tied to your profile; they cannot be deleted individually.</td></tr>
+</table>
+
+<h2>Data on your device</h2>
+<p>We cannot access data stored on your phone. To remove it, delete your stickers and packs in the app, or uninstall StickerMeleon.</p>
+
+<p>See also our <a href="./">Privacy Policy</a>.</p>
+
+</body>
+</html>
